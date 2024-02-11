@@ -1,15 +1,12 @@
+version: '2'
 services:
   rabbitmq:
-    hostname: 'mabbit'
-    image: "rabbitmq:3-management"
+    container_name: some-rabbitmq
+    image: marketplace.gcr.io/google/rabbitmq3
+    environment:
+      "RABBITMQ_ERLANG_COOKIE": "unique-erlang-cookie"
     ports:
-      - "15672:15672"
-      - "5672:5672"
-    volumes:
-      - "./data:/var/lib/rabbitmq/mnesia/"
-    networks:
-      - rabbitmq
-
-networks:
-  rabbitmq:
-    driver: bridge
+      - '4369:4369'
+      - '5671:5671'
+      - '5672:5672'
+      - '25672:25672'
