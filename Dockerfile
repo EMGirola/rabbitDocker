@@ -1,8 +1,7 @@
-version: '3'
 services:
   rabbitmq:
     hostname: 'mabbit'
-    image: "${ARTIFACTORY}/rabbitmq:3-management"
+    image: "rabbitmq:3-management"
     ports:
       - "15672:15672"
       - "5672:5672"
